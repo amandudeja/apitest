@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Locations</title>
+	<style type="text/css">
+		body{
+			font-family: "Courier",sans-serif;
+		}
+		h1{
+			text-decoration: underline;
+		}
+		a{
+			margin-left: 20px;
+			text-decoration: none;
+		}
+		li{
+			width: 400px;
+			border:1px solid black;
+			box-shadow: 2px 2px 2px grey;
+			padding-left: 5px;
+		}
+
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+	<main class="container">
+	<h1 align="center"> All Locations In Database </h1>
+	<a class="btn btn-outline-primary first" href="{% url 'myapp:add' %}">Add New Location</a>
+	<a class="btn btn-outline-primary second" href="{% url 'myapp:find' %}">Find Locations In A Range Of Km</a>
+	<a class="btn btn-outline-primary first" href="{% url 'myapp:get' %}">Find Place From Lat & Lan</a>
+	<hr>
+	<ul>
+	{% for location in locations %}
+		<li> SNo. : {{ location.pk }}<br>
+			 Pincode : {{ location.key }}<br>
+			 PlaceName : {{ location.place_name }}<br>
+			 AdminName : {{ location.admin_name }}<br>
+			 Latitude : {{ location.latitude }}<br>
+			 Longitude : {{ location.longitude }} </li>
+		<p></p>
+	{% endfor %}
+	</ul>
+</main>
+</body>
+</html>
